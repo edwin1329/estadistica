@@ -10,6 +10,9 @@ body {
     color: #333;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     min-height: 100vh;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .container {
@@ -71,6 +74,9 @@ header h1 {
     gap: 0.3rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     min-width: 120px;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    min-height: 44px; /* Tamaño mínimo recomendado para elementos táctiles */
 }
 
 .nav-btn span {
@@ -342,6 +348,7 @@ main {
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     background: #000;
     margin: 0 auto;
+    max-width: 100%;
 }
 
 .video-container iframe {
@@ -407,6 +414,9 @@ main {
     transition: all 0.3s ease;
     width: 100%;
     box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    min-height: 44px;
 }
 
 .exercise-btn:hover {
@@ -491,6 +501,16 @@ main {
     border-radius: 5px;
     font-size: 1rem;
     text-align: center;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+    touch-action: manipulation;
+}
+
+.exercise-table input[type="number"]::-webkit-inner-spin-button,
+.exercise-table input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 .exercise-table input[type="number"]:focus {
@@ -532,6 +552,17 @@ main {
     border-radius: 5px;
     font-size: 1rem;
     transition: all 0.3s ease;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+    touch-action: manipulation;
+    min-height: 44px;
+}
+
+.input-group input[type="number"]::-webkit-inner-spin-button,
+.input-group input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 .input-group input:focus,
@@ -597,6 +628,9 @@ main {
     transition: all 0.3s ease;
     flex: 1;
     min-width: 150px;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    min-height: 44px;
 }
 
 .check-btn {
@@ -740,114 +774,32 @@ footer {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    /* Header adjustments */
+    header {
+        padding: 1rem 0;
+    }
+
     header h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
+        margin-bottom: 0.3rem;
     }
 
     .subtitle {
-        font-size: 1rem;
+        font-size: 0.95rem;
+        margin-bottom: 1rem;
     }
 
-    .intro-section,
-    .units-section {
-        padding: 2rem 1.5rem;
-        margin: 1rem;
-    }
-
-    .intro-section h2,
-    .units-section h2 {
-        font-size: 1.5rem;
-    }
-
-    .content-box {
-        padding: 1.5rem;
-    }
-
-    .content-box p {
-        font-size: 1rem;
-    }
-
-    .unit-header {
-        padding: 1.2rem;
-    }
-
-    .unit-header h3 {
-        font-size: 1.2rem;
-    }
-
+    /* Navigation adjustments */
     .main-nav {
-        gap: 0.4rem;
+        gap: 0.5rem;
+        margin-top: 1rem;
     }
 
     .nav-btn {
-        padding: 0.7rem 0.9rem;
-        min-width: 100px;
-    }
-
-    .nav-btn span {
-        font-size: 0.85rem;
-    }
-
-    .nav-btn small {
-        font-size: 0.65rem;
-    }
-
-    .unit-card.active .unit-content {
-        padding: 1.5rem;
-    }
-
-    .unit-introduction {
-        padding: 1.2rem;
-    }
-
-    .unit-introduction p {
-        font-size: 0.95rem;
-    }
-
-    .content-title {
-        font-size: 1.1rem;
-    }
-
-    .video-title {
-        font-size: 1.1rem;
-    }
-
-    .video-intro {
-        padding: 1.2rem;
-    }
-
-    .video-intro p {
-        font-size: 0.95rem;
-    }
-}
-
-@media (max-width: 480px) {
-    header h1 {
-        font-size: 1.5rem;
-    }
-
-    .intro-section,
-    .units-section {
-        padding: 1.5rem 1rem;
-    }
-
-    .content-box p {
-        font-size: 0.95rem;
-    }
-
-    .exercise-content.active {
-        padding: 1.5rem;
-    }
-
-    .main-nav {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .nav-btn {
-        width: 100%;
-        padding: 0.8rem 0.6rem;
-        min-width: auto;
+        padding: 0.7rem 0.8rem;
+        min-width: 90px;
+        flex: 1;
+        max-width: calc(50% - 0.25rem);
     }
 
     .nav-btn span {
@@ -858,18 +810,140 @@ footer {
         font-size: 0.6rem;
     }
 
+    /* Main content adjustments */
+    main {
+        padding: 1.5rem 0;
+    }
+
+    .intro-section,
+    .units-section {
+        padding: 1.5rem;
+        margin: 1rem auto;
+        border-radius: 10px;
+    }
+
+    .intro-section h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .content-box {
+        padding: 1.2rem;
+    }
+
+    .content-box p {
+        font-size: 0.95rem;
+        line-height: 1.7;
+    }
+
+    /* Unit content adjustments */
+    .unit-card.active .unit-content {
+        padding: 1.5rem;
+    }
+
+    .unit-content h4 {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+
     .unit-introduction {
         padding: 1rem;
     }
 
     .unit-introduction p {
         font-size: 0.9rem;
+        line-height: 1.7;
+    }
+
+    .content-title {
+        font-size: 1.1rem;
+    }
+
+    /* Video section adjustments */
+    .video-title {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+
+    .video-intro {
+        padding: 1rem;
+    }
+
+    .video-intro p {
+        font-size: 0.9rem;
+        line-height: 1.7;
+    }
+
+    /* Exercise section adjustments */
+    .exercise-btn {
+        padding: 0.9rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    .exercise-content.active {
+        padding: 1.5rem;
+    }
+
+    /* Table adjustments */
+    .exercise-table-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .exercise-table {
+        font-size: 0.85rem;
+        min-width: 100%;
+    }
+
+    .exercise-table th,
+    .exercise-table td {
+        padding: 0.6rem 0.5rem;
+    }
+
+    .exercise-table input[type="number"] {
+        width: 60px;
+        padding: 0.4rem;
+        font-size: 0.85rem;
+    }
+
+    /* Input groups adjustments */
+    .exercise-inputs {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .input-group label {
+        font-size: 0.9rem;
+    }
+
+    .input-group input,
+    .input-group select {
+        padding: 0.7rem;
+        font-size: 0.9rem;
+    }
+
+    /* Exercise buttons */
+    .exercise-buttons {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .check-btn,
+    .solution-btn,
+    .reset-btn {
+        width: 100%;
+        padding: 0.9rem;
+    }
+
+    /* Footer adjustments */
+    footer {
+        padding: 2rem 0 1rem;
     }
 
     .footer-content {
         grid-template-columns: 1fr;
-        text-align: center;
         gap: 1.5rem;
+        text-align: center;
     }
 
     .footer-section {
@@ -881,30 +955,301 @@ footer {
         text-align: center;
     }
 
-    .video-title {
-        font-size: 1rem;
+    .footer-section p {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Header adjustments for small phones */
+    header {
+        padding: 0.8rem 0;
     }
 
-    .video-intro {
+    header h1 {
+        font-size: 1.5rem;
+        margin-bottom: 0.2rem;
+    }
+
+    .subtitle {
+        font-size: 0.85rem;
+        margin-bottom: 0.8rem;
+    }
+
+    /* Navigation - stack vertically on small screens */
+    .main-nav {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.4rem;
+        margin-top: 0.8rem;
+    }
+
+    .nav-btn {
+        width: 100%;
+        padding: 0.8rem 0.6rem;
+        min-width: auto;
+        max-width: 100%;
+    }
+
+    .nav-btn span {
+        font-size: 0.75rem;
+    }
+
+    .nav-btn small {
+        font-size: 0.55rem;
+    }
+
+    /* Main content - reduce padding */
+    main {
+        padding: 1rem 0;
+    }
+
+    .intro-section,
+    .units-section {
+        padding: 1.2rem 0.8rem;
+        margin: 0.5rem;
+        border-radius: 8px;
+    }
+
+    .intro-section h2 {
+        font-size: 1.3rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .content-box {
         padding: 1rem;
     }
 
+    .content-box p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+
+    /* Unit content */
+    .unit-card.active .unit-content {
+        padding: 1.2rem 0.8rem;
+    }
+
+    .unit-content h4 {
+        font-size: 1.1rem;
+        margin-bottom: 0.8rem;
+        padding-bottom: 0.6rem;
+    }
+
+    .unit-introduction {
+        padding: 0.9rem;
+    }
+
+    .unit-introduction p {
+        font-size: 0.85rem;
+        line-height: 1.6;
+        margin-bottom: 0.8rem;
+    }
+
+    .content-title {
+        font-size: 1rem;
+        margin-top: 1rem;
+    }
+
+    /* Video section */
+    .video-title {
+        font-size: 1rem;
+        margin-bottom: 0.8rem;
+        padding-bottom: 0.6rem;
+    }
+
+    .video-intro {
+        padding: 0.9rem;
+    }
+
     .video-intro p {
+        font-size: 0.85rem;
+        line-height: 1.6;
+        margin-bottom: 0.8rem;
+    }
+
+    /* Exercise section */
+    .exercise-section {
+        margin-top: 1.5rem;
+        padding-top: 1.5rem;
+    }
+
+    .exercise-btn {
+        padding: 0.8rem 1.2rem;
+        font-size: 0.95rem;
+    }
+
+    .exercise-content.active {
+        padding: 1.2rem 0.8rem;
+    }
+
+    .exercise-content h5 {
+        font-size: 1.1rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .exercise-content p {
+        font-size: 0.85rem;
+        margin-bottom: 0.8rem;
+    }
+
+    /* Tables - make more compact */
+    .exercise-table {
+        font-size: 0.75rem;
+    }
+
+    .exercise-table th,
+    .exercise-table td {
+        padding: 0.5rem 0.4rem;
+    }
+
+    .exercise-table th {
+        font-size: 0.8rem;
+    }
+
+    .exercise-table input[type="number"] {
+        width: 50px;
+        padding: 0.3rem;
+        font-size: 0.8rem;
+    }
+
+    /* Input groups */
+    .exercise-inputs {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+
+    .input-group {
+        margin-bottom: 0.5rem;
+    }
+
+    .input-group label {
+        font-size: 0.85rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .input-group input,
+    .input-group select {
+        padding: 0.6rem;
+        font-size: 0.85rem;
+    }
+
+    /* Question groups */
+    .exercise-questions {
+        gap: 1rem;
+    }
+
+    .question-group label {
         font-size: 0.9rem;
     }
 
-    .exercise-inputs {
-        grid-template-columns: 1fr;
+    .question-group select {
+        padding: 0.6rem;
+        font-size: 0.85rem;
     }
 
+    /* Exercise buttons */
     .exercise-buttons {
         flex-direction: column;
+        gap: 0.6rem;
     }
 
     .check-btn,
     .solution-btn,
     .reset-btn {
         width: 100%;
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    /* Result messages */
+    .result-message {
+        padding: 0.8rem;
+        font-size: 0.85rem;
+    }
+
+    /* Footer */
+    footer {
+        padding: 1.5rem 0 1rem;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+        text-align: center;
+    }
+
+    .footer-section h3 {
+        font-size: 1.1rem;
+    }
+
+    .footer-section h4 {
+        font-size: 1rem;
+    }
+
+    .footer-section p {
+        font-size: 0.8rem;
+    }
+
+    .footer-section .authors-info {
+        font-size: 0.75rem;
+    }
+
+    .footer-bottom {
+        padding-top: 1rem;
+        margin-top: 1rem;
+    }
+
+    .footer-bottom p {
+        font-size: 0.75rem;
+    }
+
+    .footer-credits {
+        font-size: 0.7rem;
+    }
+
+    /* Container adjustments */
+    .container {
+        padding: 0 10px;
+    }
+}
+
+/* Additional responsive adjustments for very small screens */
+@media (max-width: 360px) {
+    header h1 {
+        font-size: 1.3rem;
+    }
+
+    .subtitle {
+        font-size: 0.75rem;
+    }
+
+    .nav-btn span {
+        font-size: 0.7rem;
+    }
+
+    .nav-btn small {
+        font-size: 0.5rem;
+    }
+
+    .intro-section,
+    .units-section {
+        padding: 1rem 0.6rem;
+        margin: 0.3rem;
+    }
+
+    .content-box {
+        padding: 0.8rem;
+    }
+
+    .exercise-table {
+        font-size: 0.7rem;
+    }
+
+    .exercise-table input[type="number"] {
+        width: 45px;
+        padding: 0.25rem;
+        font-size: 0.75rem;
     }
 }
 
