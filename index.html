@@ -9,9 +9,16 @@
 <body>
     <header>
         <div class="container">
-            <h1>Estadística</h1>
+            <div class="header-top">
+                <h1>Estadística</h1>
+                <button class="menu-toggle" id="menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
             <p class="subtitle">Curso de Ingeniería de Sistemas</p>
-            <nav class="main-nav">
+            <nav class="main-nav" id="main-nav">
                 <button class="nav-btn active" onclick="showHome()" id="nav-home">
                     <span>🏠 Inicio</span>
                 </button>

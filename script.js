@@ -1,3 +1,25 @@
+// Función para mostrar/ocultar el menú móvil
+function toggleMobileMenu() {
+    const nav = document.getElementById('main-nav');
+    const toggle = document.getElementById('menu-toggle');
+    
+    if (nav && toggle) {
+        nav.classList.toggle('mobile-active');
+        toggle.classList.toggle('active');
+    }
+}
+
+// Función para cerrar el menú móvil
+function closeMobileMenu() {
+    const nav = document.getElementById('main-nav');
+    const toggle = document.getElementById('menu-toggle');
+    
+    if (nav && toggle) {
+        nav.classList.remove('mobile-active');
+        toggle.classList.remove('active');
+    }
+}
+
 // Función para mostrar la página de inicio (home)
 function showHome() {
     // Ocultar todas las unidades
@@ -16,6 +38,9 @@ function showHome() {
     
     // Actualizar navegación
     updateNavigation('home');
+    
+    // Cerrar menú móvil si está abierto
+    closeMobileMenu();
     
     // Scroll suave al inicio
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -52,6 +77,9 @@ function showUnit(unitNumber) {
     
     // Actualizar navegación
     updateNavigation(`unit-${unitNumber}`);
+    
+    // Cerrar menú móvil si está abierto
+    closeMobileMenu();
     
     // Scroll suave a la sección de unidades
     if (unitsSection) {
@@ -403,6 +431,28 @@ function resetExercise4() {
     });
     document.getElementById('result-4').className = 'result-message';
 }
+
+// Cerrar menú móvil al hacer clic fuera de él
+document.addEventListener('click', function(event) {
+    const nav = document.getElementById('main-nav');
+    const toggle = document.getElementById('menu-toggle');
+    
+    if (nav && toggle && nav.classList.contains('mobile-active')) {
+        const isClickInsideNav = nav.contains(event.target);
+        const isClickOnToggle = toggle.contains(event.target);
+        
+        if (!isClickInsideNav && !isClickOnToggle) {
+            closeMobileMenu();
+        }
+    }
+});
+
+// Cerrar menú móvil al redimensionar la ventana (si se vuelve desktop)
+window.addEventListener('resize', function() {
+    if (window.innerWidth > 768) {
+        closeMobileMenu();
+    }
+});
 
 // Inicializar: mostrar la página de inicio por defecto
 document.addEventListener('DOMContentLoaded', function() {
