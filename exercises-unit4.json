@@ -1,0 +1,107 @@
+[
+  {
+    "id": 1,
+    "title": "Urna con Bolas Rojas, Azules y Verdes",
+    "description": "En una urna hay 5 bolas rojas, 3 bolas azules y 2 bolas verdes. Se extraen 2 bolas.",
+    "totalBalls": 10,
+    "redBalls": 5,
+    "blueBalls": 3,
+    "greenBalls": 2,
+    "colorName": "Roja"
+  },
+  {
+    "id": 2,
+    "title": "Urna con Bolas Rojas y Azules",
+    "description": "En una urna hay 6 bolas rojas y 4 bolas azules. Se extraen 2 bolas.",
+    "totalBalls": 10,
+    "redBalls": 6,
+    "blueBalls": 4,
+    "greenBalls": 0,
+    "colorName": "Roja"
+  },
+  {
+    "id": 3,
+    "title": "Urna con Bolas Rojas, Verdes y Amarillas",
+    "description": "En una urna hay 4 bolas rojas, 3 bolas verdes y 3 bolas amarillas. Se extraen 2 bolas.",
+    "totalBalls": 10,
+    "redBalls": 4,
+    "blueBalls": 0,
+    "greenBalls": 3,
+    "yellowBalls": 3,
+    "colorName": "Roja"
+  },
+  {
+    "id": 4,
+    "title": "Urna con Bolas Azules y Rojas",
+    "description": "En una urna hay 7 bolas azules y 3 bolas rojas. Se extraen 2 bolas.",
+    "totalBalls": 10,
+    "redBalls": 3,
+    "blueBalls": 7,
+    "greenBalls": 0,
+    "colorName": "Azul"
+  },
+  {
+    "id": 5,
+    "title": "Urna con Bolas Rojas, Azules, Verdes y Negras",
+    "description": "En una urna hay 3 bolas rojas, 3 bolas azules, 2 bolas verdes y 2 bolas negras. Se extraen 2 bolas.",
+    "totalBalls": 10,
+    "redBalls": 3,
+    "blueBalls": 3,
+    "greenBalls": 2,
+    "blackBalls": 2,
+    "colorName": "Roja"
+  },
+  {
+    "id": 6,
+    "title": "Urna con Bolas Verdes y Rojas",
+    "description": "En una urna hay 8 bolas verdes y 2 bolas rojas. Se extraen 2 bolas.",
+    "totalBalls": 10,
+    "redBalls": 2,
+    "blueBalls": 0,
+    "greenBalls": 8,
+    "colorName": "Verde"
+  },
+  {
+    "id": 7,
+    "title": "Urna con Bolas Rojas y Blancas",
+    "description": "En una urna hay 5 bolas rojas y 5 bolas blancas. Se extraen 2 bolas.",
+    "totalBalls": 10,
+    "redBalls": 5,
+    "blueBalls": 0,
+    "whiteBalls": 5,
+    "colorName": "Roja"
+  },
+  {
+    "id": 8,
+    "title": "Urna con Bolas Rojas, Azules y Amarillas",
+    "description": "En una urna hay 4 bolas rojas, 4 bolas azules y 2 bolas amarillas. Se extraen 2 bolas.",
+    "totalBalls": 10,
+    "redBalls": 4,
+    "blueBalls": 4,
+    "greenBalls": 0,
+    "yellowBalls": 2,
+    "colorName": "Roja"
+  },
+  {
+    "id": 9,
+    "title": "Urna con Bolas Azules, Verdes y Rojas",
+    "description": "En una urna hay 2 bolas azules, 3 bolas verdes y 5 bolas rojas. Se extraen 2 bolas.",
+    "totalBalls": 10,
+    "redBalls": 5,
+    "blueBalls": 2,
+    "greenBalls": 3,
+    "colorName": "Roja"
+  },
+  {
+    "id": 10,
+    "title": "Urna con Bolas Rojas, Azules y Negras",
+    "description": "En una urna hay 6 bolas rojas, 2 bolas azules y 2 bolas negras. Se extraen 2 bolas.",
+    "totalBalls": 10,
+    "redBalls": 6,
+    "blueBalls": 2,
+    "greenBalls": 0,
+    "blackBalls": 2,
+    "colorName": "Roja"
+  }
+]
+

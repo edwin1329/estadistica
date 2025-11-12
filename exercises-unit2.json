@@ -1,0 +1,63 @@
+[
+  {
+    "id": 1,
+    "title": "Tiempo de Respuesta del Sistema",
+    "description": "Se registraron los tiempos de respuesta (en segundos) de un sistema informático",
+    "data": [12, 15, 18, 20, 22, 15, 18, 20, 15, 18]
+  },
+  {
+    "id": 2,
+    "title": "Calificaciones de Examen",
+    "description": "Se registraron las calificaciones de 12 estudiantes en un examen",
+    "data": [75, 80, 85, 90, 75, 80, 85, 90, 95, 75, 80, 85]
+  },
+  {
+    "id": 3,
+    "title": "Ventas Mensuales",
+    "description": "Se registraron las ventas mensuales (en miles de pesos) de una tienda durante 10 meses",
+    "data": [45, 50, 55, 60, 45, 50, 55, 60, 65, 45]
+  },
+  {
+    "id": 4,
+    "title": "Temperatura del Servidor",
+    "description": "Se registró la temperatura (en grados Celsius) de un servidor durante 14 mediciones",
+    "data": [32, 35, 38, 40, 32, 35, 38, 40, 42, 32, 35, 38, 40, 32]
+  },
+  {
+    "id": 5,
+    "title": "Horas de Trabajo Semanales",
+    "description": "Se registraron las horas de trabajo semanales de 11 empleados",
+    "data": [35, 40, 45, 35, 40, 45, 50, 35, 40, 45, 35]
+  },
+  {
+    "id": 6,
+    "title": "Velocidad de Internet",
+    "description": "Se midió la velocidad de internet (en Mbps) en 13 pruebas diferentes",
+    "data": [25, 30, 35, 40, 25, 30, 35, 40, 45, 25, 30, 35, 25]
+  },
+  {
+    "id": 7,
+    "title": "Peso de Paquetes",
+    "description": "Se registró el peso (en kilogramos) de 9 paquetes enviados",
+    "data": [2.5, 3.0, 3.5, 4.0, 2.5, 3.0, 3.5, 4.0, 2.5]
+  },
+  {
+    "id": 8,
+    "title": "Edad de Usuarios",
+    "description": "Se registró la edad de 15 usuarios de una plataforma",
+    "data": [18, 22, 25, 28, 18, 22, 25, 28, 30, 18, 22, 25, 28, 18, 22]
+  },
+  {
+    "id": 9,
+    "title": "Memoria RAM Utilizada",
+    "description": "Se registró el porcentaje de memoria RAM utilizada en 12 mediciones",
+    "data": [45, 50, 55, 60, 45, 50, 55, 60, 65, 45, 50, 55]
+  },
+  {
+    "id": 10,
+    "title": "Tiempo de Carga de Página",
+    "description": "Se midió el tiempo de carga (en milisegundos) de una página web en 10 pruebas",
+    "data": [120, 150, 180, 200, 120, 150, 180, 200, 220, 120]
+  }
+]
+

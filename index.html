@@ -118,24 +118,22 @@
                             <div class="exercise-section">
                                 <button class="exercise-btn" onclick="toggleExercise(1)">📊 Ejercicio de Práctica</button>
                                 <div class="exercise-content" id="exercise-1">
-                                    <h5>Ejercicio: Tabla de Frecuencias</h5>
-                                    <p>Se registraron las calificaciones de 20 estudiantes: 8, 7, 9, 6, 8, 7, 8, 9, 7, 6, 8, 9, 7, 8, 9, 6, 7, 8, 9, 8</p>
+                                    <h5 id="exercise1-title">Ejercicio: Tabla de Frecuencias</h5>
+                                    <p id="exercise1-description">Cargando ejercicio...</p>
+                                    <p id="exercise1-data" style="font-family: monospace; background: #f0f0f0; padding: 0.5rem; border-radius: 5px; display: none;"></p>
                                     <p><strong>Completa la tabla de frecuencias:</strong></p>
                                     <div class="exercise-table-container">
                                         <table class="exercise-table">
                                             <thead>
                                                 <tr>
-                                                    <th>Calificación (xi)</th>
+                                                    <th>Valor (xi)</th>
                                                     <th>Frecuencia (fi)</th>
                                                     <th>Frecuencia Relativa (fr)</th>
                                                     <th>Frecuencia Acumulada (Fa)</th>
                                                 </tr>
                                             </thead>
                                             <tbody id="table-unit1">
-                                                <tr><td>6</td><td><input type="number" id="f1-6" placeholder="?"></td><td><span id="fr1-6">-</span></td><td><span id="fa1-6">-</span></td></tr>
-                                                <tr><td>7</td><td><input type="number" id="f1-7" placeholder="?"></td><td><span id="fr1-7">-</span></td><td><span id="fa1-7">-</span></td></tr>
-                                                <tr><td>8</td><td><input type="number" id="f1-8" placeholder="?"></td><td><span id="fr1-8">-</span></td><td><span id="fa1-8">-</span></td></tr>
-                                                <tr><td>9</td><td><input type="number" id="f1-9" placeholder="?"></td><td><span id="fr1-9">-</span></td><td><span id="fa1-9">-</span></td></tr>
+                                                <!-- Las filas se generarán dinámicamente -->
                                             </tbody>
                                         </table>
                                     </div>
@@ -203,8 +201,9 @@
                             <div class="exercise-section">
                                 <button class="exercise-btn" onclick="toggleExercise(2)">📊 Ejercicio de Práctica</button>
                                 <div class="exercise-content" id="exercise-2">
-                                    <h5>Ejercicio: Cálculo de Medidas Estadísticas</h5>
-                                    <p>Datos: 12, 15, 18, 20, 22, 15, 18, 20, 15, 18</p>
+                                    <h5 id="exercise2-title">Ejercicio: Cálculo de Medidas Estadísticas</h5>
+                                    <p id="exercise2-description">Cargando ejercicio...</p>
+                                    <p id="exercise2-data" style="font-family: monospace; background: #f0f0f0; padding: 0.5rem; border-radius: 5px; display: none;"></p>
                                     <p><strong>Calcula las siguientes medidas (redondea a 2 decimales):</strong></p>
                                     <div class="exercise-inputs">
                                         <div class="input-group">
@@ -309,49 +308,10 @@
                             <div class="exercise-section">
                                 <button class="exercise-btn" onclick="toggleExercise(3)">📊 Ejercicio de Práctica</button>
                                 <div class="exercise-content" id="exercise-3">
-                                    <h5>Ejercicio: Identificación de Conceptos de Probabilidad</h5>
-                                    <p><strong>Se lanza un dado de 6 caras. Responde las siguientes preguntas:</strong></p>
-                                    <div class="exercise-questions">
-                                        <div class="question-group">
-                                            <label>1. ¿Cuál es el espacio muestral?</label>
-                                            <select id="q3-1">
-                                                <option value="">Selecciona una opción</option>
-                                                <option value="wrong">Ω = {1, 2, 3, 4, 5}</option>
-                                                <option value="correct">Ω = {1, 2, 3, 4, 5, 6}</option>
-                                                <option value="wrong">Ω = {cara, sello}</option>
-                                            </select>
-                                        </div>
-                                        <div class="question-group">
-                                            <label>2. ¿Cuántos puntos muestrales tiene este experimento?</label>
-                                            <input type="number" id="q3-2" placeholder="Número">
-                                        </div>
-                                        <div class="question-group">
-                                            <label>3. El evento "obtener un número par" es:</label>
-                                            <select id="q3-3">
-                                                <option value="">Selecciona una opción</option>
-                                                <option value="correct">Evento aleatorio</option>
-                                                <option value="wrong">Evento imposible</option>
-                                                <option value="wrong">Evento seguro</option>
-                                            </select>
-                                        </div>
-                                        <div class="question-group">
-                                            <label>4. El evento "obtener un 7" es:</label>
-                                            <select id="q3-4">
-                                                <option value="">Selecciona una opción</option>
-                                                <option value="wrong">Evento aleatorio</option>
-                                                <option value="correct">Evento imposible</option>
-                                                <option value="wrong">Evento seguro</option>
-                                            </select>
-                                        </div>
-                                        <div class="question-group">
-                                            <label>5. El evento "obtener un número entre 1 y 6" es:</label>
-                                            <select id="q3-5">
-                                                <option value="">Selecciona una opción</option>
-                                                <option value="wrong">Evento aleatorio</option>
-                                                <option value="wrong">Evento imposible</option>
-                                                <option value="correct">Evento seguro</option>
-                                            </select>
-                                        </div>
+                                    <h5 id="exercise3-title">Ejercicio: Identificación de Conceptos de Probabilidad</h5>
+                                    <p id="exercise3-description"><strong>Cargando ejercicio...</strong></p>
+                                    <div class="exercise-questions" id="exercise3-questions">
+                                        <!-- Las preguntas se generarán dinámicamente -->
                                     </div>
                                     <div class="exercise-buttons">
                                         <button onclick="checkExercise3()" class="check-btn">Verificar Respuesta</button>
@@ -423,27 +383,27 @@
                             <div class="exercise-section">
                                 <button class="exercise-btn" onclick="toggleExercise(4)">📊 Ejercicio de Práctica</button>
                                 <div class="exercise-content" id="exercise-4">
-                                    <h5>Ejercicio: Sucesos Dependientes, Independientes y Probabilidad Condicional</h5>
-                                    <p><strong>En una urna hay 5 bolas rojas, 3 bolas azules y 2 bolas verdes. Se extraen 2 bolas.</strong></p>
+                                    <h5 id="exercise4-title">Ejercicio: Sucesos Dependientes, Independientes y Probabilidad Condicional</h5>
+                                    <p id="exercise4-description"><strong>Cargando ejercicio...</strong></p>
                                     <div class="exercise-inputs">
                                         <div class="input-group">
-                                            <label>P(Roja en primera extracción):</label>
+                                            <label id="label-prob-r">P(Roja en primera extracción):</label>
                                             <input type="text" id="prob-r" placeholder="fracción o decimal">
                                         </div>
                                         <div class="input-group">
-                                            <label>P(Roja en segunda | Roja en primera) - Con reemplazo (Independientes):</label>
+                                            <label id="label-prob-r-cond-indep">P(Roja en segunda | Roja en primera) - Con reemplazo (Independientes):</label>
                                             <input type="text" id="prob-r-cond-indep" placeholder="fracción o decimal">
                                         </div>
                                         <div class="input-group">
-                                            <label>P(Roja en segunda | Roja en primera) - Sin reemplazo (Dependientes):</label>
+                                            <label id="label-prob-r-cond-dep">P(Roja en segunda | Roja en primera) - Sin reemplazo (Dependientes):</label>
                                             <input type="text" id="prob-r-cond-dep" placeholder="fracción o decimal">
                                         </div>
                                         <div class="input-group">
-                                            <label>P(Roja y Roja) - Con reemplazo (Independientes):</label>
+                                            <label id="label-prob-rr-indep">P(Roja y Roja) - Con reemplazo (Independientes):</label>
                                             <input type="text" id="prob-rr-indep" placeholder="fracción o decimal">
                                         </div>
                                         <div class="input-group">
-                                            <label>P(Roja y Roja) - Sin reemplazo (Dependientes):</label>
+                                            <label id="label-prob-rr-dep">P(Roja y Roja) - Sin reemplazo (Dependientes):</label>
                                             <input type="text" id="prob-rr-dep" placeholder="fracción o decimal">
                                         </div>
                                     </div>

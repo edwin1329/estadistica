@@ -1,0 +1,293 @@
+[
+  {
+    "id": 1,
+    "title": "Lanzamiento de Dado",
+    "description": "Se lanza un dado de 6 caras",
+    "sampleSpace": "Ω = {1, 2, 3, 4, 5, 6}",
+    "sampleSpaceOptions": [
+      "Ω = {1, 2, 3, 4, 5}",
+      "Ω = {1, 2, 3, 4, 5, 6}",
+      "Ω = {cara, sello}"
+    ],
+    "samplePoints": 6,
+    "questions": [
+      {
+        "label": "El evento \"obtener un número par\" es:",
+        "correct": "Evento aleatorio",
+        "options": ["Evento aleatorio", "Evento imposible", "Evento seguro"]
+      },
+      {
+        "label": "El evento \"obtener un 7\" es:",
+        "correct": "Evento imposible",
+        "options": ["Evento aleatorio", "Evento imposible", "Evento seguro"]
+      },
+      {
+        "label": "El evento \"obtener un número entre 1 y 6\" es:",
+        "correct": "Evento seguro",
+        "options": ["Evento aleatorio", "Evento imposible", "Evento seguro"]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Lanzamiento de Moneda",
+    "description": "Se lanza una moneda",
+    "sampleSpace": "Ω = {cara, sello}",
+    "sampleSpaceOptions": [
+      "Ω = {1, 2, 3, 4, 5, 6}",
+      "Ω = {cara, sello}",
+      "Ω = {cara}"
+    ],
+    "samplePoints": 2,
+    "questions": [
+      {
+        "label": "El evento \"obtener cara\" es:",
+        "correct": "Evento aleatorio",
+        "options": ["Evento aleatorio", "Evento imposible", "Evento seguro"]
+      },
+      {
+        "label": "El evento \"obtener un número\" es:",
+        "correct": "Evento imposible",
+        "options": ["Evento aleatorio", "Evento imposible", "Evento seguro"]
+      },
+      {
+        "label": "El evento \"obtener cara o sello\" es:",
+        "correct": "Evento seguro",
+        "options": ["Evento aleatorio", "Evento imposible", "Evento seguro"]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Extracción de Carta",
+    "description": "Se extrae una carta de una baraja española (40 cartas: 1-7 y figuras por palo)",
+    "sampleSpace": "Ω = {40 cartas diferentes}",
+    "sampleSpaceOptions": [
+      "Ω = {1, 2, 3, 4, 5, 6}",
+      "Ω = {40 cartas diferentes}",
+      "Ω = {cara, sello}"
+    ],
+    "samplePoints": 40,
+    "questions": [
+      {
+        "label": "El evento \"obtener un as\" es:",
+        "correct": "Evento aleatorio",
+        "options": ["Evento aleatorio", "Evento imposible", "Evento seguro"]
+      },
+      {
+        "label": "El evento \"obtener un 10\" es:",
+        "correct": "Evento imposible",
+        "options": ["Evento aleatorio", "Evento imposible", "Evento seguro"]
+      },
+      {
+        "label": "El evento \"obtener una carta de la baraja\" es:",
+        "correct": "Evento seguro",
+        "options": ["Evento aleatorio", "Evento imposible", "Evento seguro"]
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Ruleta Numerada",
+    "description": "Se gira una ruleta numerada del 1 al 12",
+    "sampleSpace": "Ω = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12}",
+    "sampleSpaceOptions": [
+      "Ω = {1, 2, 3, 4, 5, 6}",
+      "Ω = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12}",
+      "Ω = {cara, sello}"
+    ],
+    "samplePoints": 12,
+    "questions": [
+      {
+        "label": "El evento \"obtener un número mayor que 5\" es:",
+        "correct": "Evento aleatorio",
+        "options": ["Evento aleatorio", "Evento imposible", "Evento seguro"]
+      },
+      {
+        "label": "El evento \"obtener un 15\" es:",
+        "correct": "Evento imposible",
+        "options": ["Evento aleatorio", "Evento imposible", "Evento seguro"]
+      },
+      {
+        "label": "El evento \"obtener un número entre 1 y 12\" es:",
+        "correct": "Evento seguro",
+        "options": ["Evento aleatorio", "Evento imposible", "Evento seguro"]
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Lanzamiento de Dos Monedas",
+    "description": "Se lanzan dos monedas simultáneamente",
+    "sampleSpace": "Ω = {(cara,cara), (cara,sello), (sello,cara), (sello,sello)}",
+    "sampleSpaceOptions": [
+      "Ω = {1, 2, 3, 4, 5, 6}",
+      "Ω = {(cara,cara), (cara,sello), (sello,cara), (sello,sello)}",
+      "Ω = {cara, sello}"
+    ],
+    "samplePoints": 4,
+    "questions": [
+      {
+        "label": "El evento \"obtener al menos una cara\" es:",
+        "correct": "Evento aleatorio",
+        "options": ["Evento aleatorio", "Evento imposible", "Evento seguro"]
+      },
+      {
+        "label": "El evento \"obtener tres caras\" es:",
+        "correct": "Evento imposible",
+        "options": ["Evento aleatorio", "Evento imposible", "Evento seguro"]
+      },
+      {
+        "label": "El evento \"obtener cara o sello en cada moneda\" es:",
+        "correct": "Evento seguro",
+        "options": ["Evento aleatorio", "Evento imposible", "Evento seguro"]
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Selección de Color",
+    "description": "Se selecciona al azar un color de una caja que contiene 5 colores: rojo, azul, verde, amarillo y negro",
+    "sampleSpace": "Ω = {rojo, azul, verde, amarillo, negro}",
+    "sampleSpaceOptions": [
+      "Ω = {1, 2, 3, 4, 5, 6}",
+      "Ω = {rojo, azul, verde, amarillo, negro}",
+      "Ω = {cara, sello}"
+    ],
+    "samplePoints": 5,
+    "questions": [
+      {
+        "label": "El evento \"obtener rojo\" es:",
+        "correct": "Evento aleatorio",
+        "options": ["Evento aleatorio", "Evento imposible", "Evento seguro"]
+      },
+      {
+        "label": "El evento \"obtener blanco\" es:",
+        "correct": "Evento imposible",
+        "options": ["Evento aleatorio", "Evento imposible", "Evento seguro"]
+      },
+      {
+        "label": "El evento \"obtener un color de la caja\" es:",
+        "correct": "Evento seguro",
+        "options": ["Evento aleatorio", "Evento imposible", "Evento seguro"]
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Lanzamiento de Dado de 8 Caras",
+    "description": "Se lanza un dado de 8 caras numerado del 1 al 8",
+    "sampleSpace": "Ω = {1, 2, 3, 4, 5, 6, 7, 8}",
+    "sampleSpaceOptions": [
+      "Ω = {1, 2, 3, 4, 5, 6}",
+      "Ω = {1, 2, 3, 4, 5, 6, 7, 8}",
+      "Ω = {cara, sello}"
+    ],
+    "samplePoints": 8,
+    "questions": [
+      {
+        "label": "El evento \"obtener un número primo\" es:",
+        "correct": "Evento aleatorio",
+        "options": ["Evento aleatorio", "Evento imposible", "Evento seguro"]
+      },
+      {
+        "label": "El evento \"obtener un 9\" es:",
+        "correct": "Evento imposible",
+        "options": ["Evento aleatorio", "Evento imposible", "Evento seguro"]
+      },
+      {
+        "label": "El evento \"obtener un número entre 1 y 8\" es:",
+        "correct": "Evento seguro",
+        "options": ["Evento aleatorio", "Evento imposible", "Evento seguro"]
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Selección de Número",
+    "description": "Se selecciona al azar un número del conjunto {2, 4, 6, 8, 10}",
+    "sampleSpace": "Ω = {2, 4, 6, 8, 10}",
+    "sampleSpaceOptions": [
+      "Ω = {1, 2, 3, 4, 5, 6}",
+      "Ω = {2, 4, 6, 8, 10}",
+      "Ω = {cara, sello}"
+    ],
+    "samplePoints": 5,
+    "questions": [
+      {
+        "label": "El evento \"obtener un número mayor que 5\" es:",
+        "correct": "Evento aleatorio",
+        "options": ["Evento aleatorio", "Evento imposible", "Evento seguro"]
+      },
+      {
+        "label": "El evento \"obtener un 3\" es:",
+        "correct": "Evento imposible",
+        "options": ["Evento aleatorio", "Evento imposible", "Evento seguro"]
+      },
+      {
+        "label": "El evento \"obtener un número del conjunto\" es:",
+        "correct": "Evento seguro",
+        "options": ["Evento aleatorio", "Evento imposible", "Evento seguro"]
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "title": "Lanzamiento de Tres Monedas",
+    "description": "Se lanzan tres monedas simultáneamente",
+    "sampleSpace": "Ω = {8 combinaciones posibles}",
+    "sampleSpaceOptions": [
+      "Ω = {1, 2, 3, 4, 5, 6}",
+      "Ω = {8 combinaciones posibles}",
+      "Ω = {cara, sello}"
+    ],
+    "samplePoints": 8,
+    "questions": [
+      {
+        "label": "El evento \"obtener exactamente dos caras\" es:",
+        "correct": "Evento aleatorio",
+        "options": ["Evento aleatorio", "Evento imposible", "Evento seguro"]
+      },
+      {
+        "label": "El evento \"obtener cuatro caras\" es:",
+        "correct": "Evento imposible",
+        "options": ["Evento aleatorio", "Evento imposible", "Evento seguro"]
+      },
+      {
+        "label": "El evento \"obtener cara o sello en cada moneda\" es:",
+        "correct": "Evento seguro",
+        "options": ["Evento aleatorio", "Evento imposible", "Evento seguro"]
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "title": "Extracción de Bola",
+    "description": "Se extrae una bola de una urna que contiene 3 bolas rojas, 2 bolas azules y 1 bola verde",
+    "sampleSpace": "Ω = {roja, azul, verde}",
+    "sampleSpaceOptions": [
+      "Ω = {1, 2, 3, 4, 5, 6}",
+      "Ω = {roja, azul, verde}",
+      "Ω = {cara, sello}"
+    ],
+    "samplePoints": 3,
+    "questions": [
+      {
+        "label": "El evento \"obtener una bola azul\" es:",
+        "correct": "Evento aleatorio",
+        "options": ["Evento aleatorio", "Evento imposible", "Evento seguro"]
+      },
+      {
+        "label": "El evento \"obtener una bola amarilla\" es:",
+        "correct": "Evento imposible",
+        "options": ["Evento aleatorio", "Evento imposible", "Evento seguro"]
+      },
+      {
+        "label": "El evento \"obtener una bola de la urna\" es:",
+        "correct": "Evento seguro",
+        "options": ["Evento aleatorio", "Evento imposible", "Evento seguro"]
+      }
+    ]
+  }
+]
+
