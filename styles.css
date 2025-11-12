@@ -709,6 +709,13 @@ footer {
     margin: 0;
 }
 
+.footer-section .authors-info {
+    color: #667eea;
+    font-weight: 500;
+    font-style: italic;
+    margin-top: 0.5rem;
+}
+
 .footer-bottom {
     text-align: center;
     padding-top: 1.5rem;
@@ -720,7 +727,15 @@ footer {
     color: #666;
     font-size: 0.85rem;
     font-weight: 500;
-    margin: 0;
+    margin: 0.3rem 0;
+}
+
+.footer-credits {
+    color: #667eea;
+    font-size: 0.8rem;
+    font-weight: 500;
+    font-style: italic;
+    margin-top: 0.5rem;
 }
 
 /* Responsive Design */
