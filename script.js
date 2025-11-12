@@ -20,6 +20,39 @@ function closeMobileMenu() {
     }
 }
 
+// Función para hacer scroll considerando el header sticky
+function scrollToElement(element, offset = 0) {
+    if (!element) return;
+    
+    const header = document.querySelector('header');
+    const headerHeight = header ? header.offsetHeight : 0;
+    
+    // Calcular posición del elemento de manera más precisa
+    let elementPosition = 0;
+    
+    // Intentar obtener la posición usando diferentes métodos
+    if (element.classList.contains('active')) {
+        // Si está visible, usar getBoundingClientRect
+        const rect = element.getBoundingClientRect();
+        elementPosition = rect.top + window.pageYOffset;
+    } else {
+        // Si no está visible, calcular desde el offsetTop acumulado
+        let currentElement = element;
+        while (currentElement) {
+            elementPosition += currentElement.offsetTop;
+            currentElement = currentElement.offsetParent;
+        }
+    }
+    
+    // Calcular posición final considerando header y offset adicional
+    const offsetPosition = Math.max(0, elementPosition - headerHeight - offset);
+    
+    window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+    });
+}
+
 // Función para mostrar la página de inicio (home)
 function showHome() {
     // Ocultar todas las unidades
@@ -42,8 +75,19 @@ function showHome() {
     // Cerrar menú móvil si está abierto
     closeMobileMenu();
     
-    // Scroll suave al inicio
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Scroll suave al inicio considerando el header
+    // Esperar a que la animación de fadeInUp comience antes de hacer scroll
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            setTimeout(() => {
+                if (homeSection && homeSection.classList.contains('active')) {
+                    scrollToElement(homeSection, 20);
+                } else {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            }, 100);
+        });
+    });
 }
 
 // Función para mostrar/ocultar unidades
@@ -81,10 +125,17 @@ function showUnit(unitNumber) {
     // Cerrar menú móvil si está abierto
     closeMobileMenu();
     
-    // Scroll suave a la sección de unidades
-    if (unitsSection) {
-        unitsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    // Scroll suave a la sección de unidades considerando el header
+    // Esperar a que la animación de fadeInUp comience antes de hacer scroll
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            setTimeout(() => {
+                if (unitsSection && unitsSection.classList.contains('active')) {
+                    scrollToElement(unitsSection, 20);
+                }
+            }, 100);
+        });
+    });
 }
 
 // Función para actualizar el estado activo de la navegación

@@ -178,6 +178,7 @@ main {
     margin-bottom: 3rem;
     display: none;
     animation: fadeInUp 0.4s ease;
+    scroll-margin-top: 120px; /* Espacio para el header sticky */
 }
 
 .intro-section.active {
@@ -221,6 +222,7 @@ main {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     padding: 3rem;
     display: none;
+    scroll-margin-top: 120px; /* Espacio para el header sticky */
 }
 
 .units-section.active {
