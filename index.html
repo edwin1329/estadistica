@@ -38,6 +38,10 @@
                     <span>UNIDAD 4</span>
                     <small>Sucesos Dependientes e Independientes</small>
                 </button>
+                <button class="nav-btn" onclick="showTest()" id="nav-test">
+                    <span>📝 TEST FINAL</span>
+                    <small>Evaluación General</small>
+                </button>
             </nav>
         </div>
     </header>
@@ -420,7 +424,60 @@
                 </div>
             </div>
         </section>
+
+        <!-- SECCIÓN TEST FINAL -->
+        <section class="test-section" id="test-section">
+            <div class="container">
+                <h2>📝 Test Final de Estadística</h2>
+                <div class="content-box">
+                    <div class="test-intro">
+                        <p><strong>Instrucciones:</strong></p>
+                        <ul>
+                            <li>Este test contiene 8 preguntas</li>
+                            <li>Ingresa tu nombre antes de comenzar</li>
+                            <li>Responde todas las preguntas</li>
+                            <li>Al finalizar, se mostrará tu resultado y si aprobaste o no</li>
+                            <li>Para aprobar necesitas al menos el 70% de respuestas correctas (6 de 8)</li>
+                        </ul>
+                    </div>
+
+                    <div class="test-form-container">
+                        <div class="test-name-section">
+                            <label for="test-student-name">Nombre del Estudiante:</label>
+                            <input type="text" id="test-student-name" placeholder="Ingresa tu nombre completo" maxlength="100">
+                            <button onclick="startTest()" class="start-test-btn" id="start-test-btn">Comenzar Test</button>
+                        </div>
+
+                        <div class="test-questions-container" id="test-questions-container" style="display: none;">
+                            <!-- Las preguntas se generarán dinámicamente aquí -->
+                        </div>
+
+                        <div class="test-actions" id="test-actions" style="display: none;">
+                            <button onclick="submitTest()" class="submit-test-btn">Finalizar y Enviar Test</button>
+                            <button onclick="resetTest()" class="reset-test-btn">Reiniciar Test</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
+
+    <!-- Modal de Resultados -->
+    <div class="modal-overlay" id="test-result-modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Resultados del Test</h3>
+                <button class="modal-close" onclick="closeTestModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="test-result-content">
+                <!-- Los resultados se mostrarán aquí -->
+            </div>
+            <div class="modal-footer">
+                <button onclick="closeTestModal()" class="modal-btn">Cerrar</button>
+                <button onclick="resetTest()" class="modal-btn">Hacer Otro Test</button>
+            </div>
+        </div>
+    </div>
 
     <footer>
         <div class="container">

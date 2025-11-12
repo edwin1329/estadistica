@@ -55,13 +55,19 @@ function scrollToElement(element, offset = 0) {
 
 // Función para mostrar la página de inicio (home)
 function showHome() {
-    // Ocultar todas las unidades
+    // Ocultar todas las unidades y test
     const unitsSection = document.getElementById('units-section');
+    const testSection = document.getElementById('test-section');
     const homeSection = document.getElementById('home-section');
     
     // Ocultar unidades
     if (unitsSection) {
         unitsSection.classList.remove('active');
+    }
+    
+    // Ocultar test
+    if (testSection) {
+        testSection.classList.remove('active');
     }
     
     // Mostrar home
@@ -92,12 +98,18 @@ function showHome() {
 
 // Función para mostrar/ocultar unidades
 function showUnit(unitNumber) {
-    // Ocultar home
+    // Ocultar home y test
     const homeSection = document.getElementById('home-section');
+    const testSection = document.getElementById('test-section');
     const unitsSection = document.getElementById('units-section');
     
     if (homeSection) {
         homeSection.classList.remove('active');
+    }
+    
+    // Ocultar test
+    if (testSection) {
+        testSection.classList.remove('active');
     }
     
     // Mostrar sección de unidades
@@ -212,6 +224,9 @@ function updateNavigation(activeId) {
     if (activeId === 'home') {
         const homeBtn = document.getElementById('nav-home');
         if (homeBtn) homeBtn.classList.add('active');
+    } else if (activeId === 'test-section') {
+        const testBtn = document.getElementById('nav-test');
+        if (testBtn) testBtn.classList.add('active');
     } else {
         const unitBtn = document.getElementById(`nav-${activeId}`);
         if (unitBtn) unitBtn.classList.add('active');
@@ -1631,6 +1646,297 @@ window.addEventListener('resize', function() {
         closeMobileMenu();
     }
 });
+
+// ========== TEST FINAL ==========
+let testQuestions = [];
+let testStudentName = '';
+let testStarted = false;
+
+// Mostrar sección de test
+function showTest() {
+    const homeSection = document.getElementById('home-section');
+    const unitsSection = document.getElementById('units-section');
+    const testSection = document.getElementById('test-section');
+    
+    if (homeSection) {
+        homeSection.classList.remove('active');
+    }
+    if (unitsSection) {
+        unitsSection.classList.remove('active');
+    }
+    if (testSection) {
+        testSection.classList.add('active');
+    }
+    
+    // Actualizar navegación
+    updateNavigation('test-section');
+    
+    // Cerrar menú móvil si está abierto
+    closeMobileMenu();
+    
+    // Scroll suave a la sección de test
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            setTimeout(() => {
+                if (testSection && testSection.classList.contains('active')) {
+                    scrollToElement(testSection, 20);
+                }
+            }, 100);
+        });
+    });
+}
+
+// Seleccionar 2 ejercicios aleatorios de cada unidad
+function selectTestQuestions() {
+    testQuestions = [];
+    
+    // Unidad 1: 2 ejercicios aleatorios
+    if (exercisesUnit1.length >= 2) {
+        const shuffled1 = [...exercisesUnit1].sort(() => Math.random() - 0.5);
+        testQuestions.push(...shuffled1.slice(0, 2).map(ex => ({...ex, unit: 1, type: 'frequency'})));
+    }
+    
+    // Unidad 2: 2 ejercicios aleatorios
+    if (exercisesUnit2.length >= 2) {
+        const shuffled2 = [...exercisesUnit2].sort(() => Math.random() - 0.5);
+        testQuestions.push(...shuffled2.slice(0, 2).map(ex => ({...ex, unit: 2, type: 'statistics'})));
+    }
+    
+    // Unidad 3: 2 ejercicios aleatorios
+    if (exercisesUnit3.length >= 2) {
+        const shuffled3 = [...exercisesUnit3].sort(() => Math.random() - 0.5);
+        testQuestions.push(...shuffled3.slice(0, 2).map(ex => ({...ex, unit: 3, type: 'probability'})));
+    }
+    
+    // Unidad 4: 2 ejercicios aleatorios
+    if (exercisesUnit4.length >= 2) {
+        const shuffled4 = [...exercisesUnit4].sort(() => Math.random() - 0.5);
+        testQuestions.push(...shuffled4.slice(0, 2).map(ex => ({...ex, unit: 4, type: 'dependent'})));
+    }
+    
+    // Mezclar todas las preguntas
+    testQuestions = testQuestions.sort(() => Math.random() - 0.5);
+    
+    console.log(`✅ Test generado con ${testQuestions.length} preguntas`);
+}
+
+// Comenzar test
+function startTest() {
+    const nameInput = document.getElementById('test-student-name');
+    const name = nameInput.value.trim();
+    
+    if (!name) {
+        alert('Por favor ingresa tu nombre antes de comenzar el test.');
+        return;
+    }
+    
+    testStudentName = name;
+    testStarted = true;
+    
+    // Asegurarse de que los ejercicios estén cargados
+    if (exercisesUnit1.length === 0) loadExercises1();
+    if (exercisesUnit2.length === 0) loadExercises2();
+    if (exercisesUnit3.length === 0) loadExercises3();
+    if (exercisesUnit4.length === 0) loadExercises4();
+    
+    // Esperar un momento para que se carguen los ejercicios
+    setTimeout(() => {
+        selectTestQuestions();
+        generateTestQuestions();
+        
+        // Ocultar sección de nombre y mostrar preguntas
+        document.querySelector('.test-name-section').style.display = 'none';
+        document.getElementById('test-questions-container').style.display = 'block';
+        document.getElementById('test-actions').style.display = 'block';
+    }, 500);
+}
+
+// Generar preguntas del test en el DOM
+function generateTestQuestions() {
+    const container = document.getElementById('test-questions-container');
+    container.innerHTML = '';
+    
+    testQuestions.forEach((question, index) => {
+        const questionDiv = document.createElement('div');
+        questionDiv.className = 'test-question-item';
+        questionDiv.id = `test-q-${index}`;
+        
+        let questionHTML = `
+            <div class="test-question-header">
+                <span class="test-question-number">Pregunta ${index + 1}</span>
+                <span class="test-question-unit">Unidad ${question.unit}</span>
+            </div>
+        `;
+        
+        if (question.type === 'frequency') {
+            // Unidad 1: Tabla de frecuencias
+            const frequencies = calculateFrequenciesFromData(question.data);
+            const values = [...question.values].sort((a, b) => a - b);
+            const total = question.data.length;
+            
+            questionHTML += `
+                <div class="test-question-title">${question.title}</div>
+                <div class="test-question-description">${question.description}</div>
+                <p><strong>Datos:</strong> ${question.data.join(', ')}</p>
+                <p><strong>Completa la frecuencia para el valor ${values[0]}:</strong></p>
+                <input type="number" class="test-question-input" id="test-answer-${index}" placeholder="Frecuencia" min="0">
+                <input type="hidden" id="test-correct-${index}" value="${frequencies[values[0]]}">
+            `;
+        } else if (question.type === 'statistics') {
+            // Unidad 2: Parámetros estadísticos
+            const stats = calculateStats2(question.data);
+            
+            questionHTML += `
+                <div class="test-question-title">${question.title}</div>
+                <div class="test-question-description">${question.description}</div>
+                <p><strong>Datos:</strong> ${question.data.join(', ')}</p>
+                <p><strong>Calcula la Media (redondea a 2 decimales):</strong></p>
+                <input type="number" step="0.01" class="test-question-input" id="test-answer-${index}" placeholder="Media">
+                <input type="hidden" id="test-correct-${index}" value="${stats.mean}">
+            `;
+        } else if (question.type === 'probability') {
+            // Unidad 3: Probabilidad básica
+            questionHTML += `
+                <div class="test-question-title">${question.title}</div>
+                <div class="test-question-description">${question.description}</div>
+                <p><strong>¿Cuántos puntos muestrales tiene este experimento?</strong></p>
+                <input type="number" class="test-question-input" id="test-answer-${index}" placeholder="Número de puntos muestrales">
+                <input type="hidden" id="test-correct-${index}" value="${question.samplePoints}">
+            `;
+        } else if (question.type === 'dependent') {
+            // Unidad 4: Sucesos dependientes e independientes
+            const probs = calculateProbabilities4(question);
+            const colorName = question.colorName;
+            
+            questionHTML += `
+                <div class="test-question-title">${question.title}</div>
+                <div class="test-question-description">${question.description}</div>
+                <p><strong>Calcula P(${colorName} en primera extracción) como fracción (ej: 5/10):</strong></p>
+                <input type="text" class="test-question-input" id="test-answer-${index}" placeholder="Fracción o decimal">
+                <input type="hidden" id="test-correct-${index}" value="${probs.probColor}">
+            `;
+        }
+        
+        questionDiv.innerHTML = questionHTML;
+        container.appendChild(questionDiv);
+    });
+}
+
+// Enviar test
+function submitTest() {
+    if (!testStarted || testQuestions.length === 0) {
+        alert('Por favor completa el test primero.');
+        return;
+    }
+    
+    let correctAnswers = 0;
+    const results = [];
+    
+    testQuestions.forEach((question, index) => {
+        const answerInput = document.getElementById(`test-answer-${index}`);
+        const correctValue = document.getElementById(`test-correct-${index}`).value;
+        
+        if (!answerInput || !answerInput.value) {
+            results.push({
+                question: index + 1,
+                unit: question.unit,
+                correct: false,
+                answered: false
+            });
+            return;
+        }
+        
+        let userAnswer = answerInput.value.trim();
+        let isCorrect = false;
+        
+        if (question.type === 'frequency' || question.type === 'probability') {
+            // Respuestas numéricas exactas
+            isCorrect = parseInt(userAnswer) === parseInt(correctValue);
+        } else if (question.type === 'statistics') {
+            // Respuestas con tolerancia para decimales
+            const tolerance = 0.01;
+            isCorrect = Math.abs(parseFloat(userAnswer) - parseFloat(correctValue)) < tolerance;
+        } else if (question.type === 'dependent') {
+            // Respuestas de probabilidad (fracción o decimal)
+            const userProb = parseProbability(userAnswer);
+            const correctProb = parseFloat(correctValue);
+            const tolerance = 0.01;
+            isCorrect = userProb !== null && Math.abs(userProb - correctProb) < tolerance;
+        }
+        
+        if (isCorrect) {
+            correctAnswers++;
+        }
+        
+        results.push({
+            question: index + 1,
+            unit: question.unit,
+            title: question.title,
+            correct: isCorrect,
+            answered: true
+        });
+    });
+    
+    // Calcular porcentaje
+    const percentage = (correctAnswers / testQuestions.length) * 100;
+    const passed = percentage >= 70;
+    
+    // Mostrar resultados en modal
+    showTestResults(testStudentName, correctAnswers, testQuestions.length, percentage, passed, results);
+}
+
+// Mostrar resultados en modal
+function showTestResults(name, correct, total, percentage, passed, results) {
+    const modal = document.getElementById('test-result-modal');
+    const content = document.getElementById('test-result-content');
+    
+    let resultsHTML = `
+        <div class="test-result-summary">
+            <div class="test-result-name">${name}</div>
+            <div class="test-result-score ${passed ? 'passed' : 'failed'}">${correct}/${total}</div>
+            <div class="test-result-score ${passed ? 'passed' : 'failed'}">${percentage.toFixed(1)}%</div>
+            <div class="test-result-status ${passed ? 'passed' : 'failed'}">
+                ${passed ? '✅ APROBADO' : '❌ NO APROBADO'}
+            </div>
+        </div>
+        <div class="test-result-details">
+            <h4>Detalle de Respuestas:</h4>
+    `;
+    
+    results.forEach(result => {
+        const status = result.correct ? '✓ Correcta' : '✗ Incorrecta';
+        const className = result.correct ? 'correct' : 'incorrect';
+        resultsHTML += `
+            <div class="test-result-item ${className}">
+                <span>Pregunta ${result.question} (Unidad ${result.unit}): ${result.title || ''}</span>
+                <span>${status}</span>
+            </div>
+        `;
+    });
+    
+    resultsHTML += `</div>`;
+    content.innerHTML = resultsHTML;
+    modal.style.display = 'flex';
+}
+
+// Cerrar modal
+function closeTestModal() {
+    document.getElementById('test-result-modal').style.display = 'none';
+}
+
+// Reiniciar test
+function resetTest() {
+    testQuestions = [];
+    testStudentName = '';
+    testStarted = false;
+    
+    document.getElementById('test-student-name').value = '';
+    document.querySelector('.test-name-section').style.display = 'flex';
+    document.getElementById('test-questions-container').style.display = 'none';
+    document.getElementById('test-questions-container').innerHTML = '';
+    document.getElementById('test-actions').style.display = 'none';
+    closeTestModal();
+}
 
 // Inicializar: mostrar la página de inicio por defecto
 document.addEventListener('DOMContentLoaded', function() {
