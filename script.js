@@ -1,33 +1,77 @@
-// Función para mostrar/ocultar unidades (sistema de pestañas)
+// Función para mostrar la página de inicio (home)
+function showHome() {
+    // Ocultar todas las unidades
+    const unitsSection = document.getElementById('units-section');
+    const homeSection = document.getElementById('home-section');
+    
+    // Ocultar unidades
+    if (unitsSection) {
+        unitsSection.classList.remove('active');
+    }
+    
+    // Mostrar home
+    if (homeSection) {
+        homeSection.classList.add('active');
+    }
+    
+    // Actualizar navegación
+    updateNavigation('home');
+    
+    // Scroll suave al inicio
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Función para mostrar/ocultar unidades
 function showUnit(unitNumber) {
+    // Ocultar home
+    const homeSection = document.getElementById('home-section');
+    const unitsSection = document.getElementById('units-section');
+    
+    if (homeSection) {
+        homeSection.classList.remove('active');
+    }
+    
+    // Mostrar sección de unidades
+    if (unitsSection) {
+        unitsSection.classList.add('active');
+    }
+    
     // Ocultar todas las unidades
     for (let i = 1; i <= 4; i++) {
         const unitCard = document.getElementById(`unit-${i}`);
-        const tabBtn = document.getElementById(`tab-${i}`);
-        
         if (unitCard) {
             unitCard.classList.remove('active');
-        }
-        if (tabBtn) {
-            tabBtn.classList.remove('active');
         }
     }
     
     // Mostrar la unidad seleccionada
     const selectedUnit = document.getElementById(`unit-${unitNumber}`);
-    const selectedTab = document.getElementById(`tab-${unitNumber}`);
-    
     if (selectedUnit) {
         selectedUnit.classList.add('active');
     }
-    if (selectedTab) {
-        selectedTab.classList.add('active');
-    }
+    
+    // Actualizar navegación
+    updateNavigation(`unit-${unitNumber}`);
     
     // Scroll suave a la sección de unidades
-    const unitsSection = document.querySelector('.units-section');
     if (unitsSection) {
         unitsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+}
+
+// Función para actualizar el estado activo de la navegación
+function updateNavigation(activeId) {
+    // Remover active de todos los botones
+    const navButtons = document.querySelectorAll('.nav-btn');
+    navButtons.forEach(btn => btn.classList.remove('active'));
+    
+    // Agregar active al botón correspondiente
+    if (activeId === 'home') {
+        const homeBtn = document.getElementById('nav-home');
+        if (homeBtn) homeBtn.classList.add('active');
+    } else {
+        const unitBtn = document.getElementById(`nav-${activeId}`);
+        if (unitBtn) unitBtn.classList.add('active');
     }
 }
 
@@ -360,10 +404,10 @@ function resetExercise4() {
     document.getElementById('result-4').className = 'result-message';
 }
 
-// Inicializar: mostrar la primera unidad por defecto
+// Inicializar: mostrar la página de inicio por defecto
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Página de Estadística cargada correctamente');
-    // Asegurar que la unidad 1 esté activa por defecto
-    showUnit(1);
+    // Mostrar la página de inicio por defecto
+    showHome();
 });
 

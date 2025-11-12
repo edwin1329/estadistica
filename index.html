@@ -11,11 +11,32 @@
         <div class="container">
             <h1>Estadística</h1>
             <p class="subtitle">Curso de Ingeniería de Sistemas</p>
+            <nav class="main-nav">
+                <button class="nav-btn active" onclick="showHome()" id="nav-home">
+                    <span>🏠 Inicio</span>
+                </button>
+                <button class="nav-btn" onclick="showUnit(1)" id="nav-unit-1">
+                    <span>UNIDAD 1</span>
+                    <small>Distribución de Frecuencias</small>
+                </button>
+                <button class="nav-btn" onclick="showUnit(2)" id="nav-unit-2">
+                    <span>UNIDAD 2</span>
+                    <small>Parámetros Estadísticos</small>
+                </button>
+                <button class="nav-btn" onclick="showUnit(3)" id="nav-unit-3">
+                    <span>UNIDAD 3</span>
+                    <small>Introducción a la Probabilidad</small>
+                </button>
+                <button class="nav-btn" onclick="showUnit(4)" id="nav-unit-4">
+                    <span>UNIDAD 4</span>
+                    <small>Sucesos Dependientes e Independientes</small>
+                </button>
+            </nav>
         </div>
     </header>
 
     <main>
-        <section class="intro-section">
+        <section class="intro-section active" id="home-section">
             <div class="container">
                 <h2>¿Qué es la Estadística?</h2>
                 <div class="content-box">
@@ -32,34 +53,11 @@
             </div>
         </section>
 
-        <section class="units-section">
+        <section class="units-section" id="units-section">
             <div class="container">
-                <h2>Unidades del Curso</h2>
-                <p class="section-description">Selecciona una unidad para ver su contenido detallado.</p>
-                
-                <!-- Navigation Tabs -->
-                <div class="units-tabs">
-                    <button class="tab-btn active" onclick="showUnit(1)" id="tab-1">
-                        <span>UNIDAD 1</span>
-                        <small>Distribución de Frecuencias</small>
-                    </button>
-                    <button class="tab-btn" onclick="showUnit(2)" id="tab-2">
-                        <span>UNIDAD 2</span>
-                        <small>Parámetros Estadísticos</small>
-                    </button>
-                    <button class="tab-btn" onclick="showUnit(3)" id="tab-3">
-                        <span>UNIDAD 3</span>
-                        <small>Introducción a la Probabilidad</small>
-                    </button>
-                    <button class="tab-btn" onclick="showUnit(4)" id="tab-4">
-                        <span>UNIDAD 4</span>
-                        <small>Sucesos Dependientes e Independientes</small>
-                    </button>
-                </div>
-                
                 <div class="units-container">
                     <!-- UNIDAD 1 -->
-                    <div class="unit-card active" id="unit-1">
+                    <div class="unit-card" id="unit-1">
                         <div class="unit-content" id="content-1">
                             <h4>DISTRIBUCIÓN DE FRECUENCIAS</h4>
                             
